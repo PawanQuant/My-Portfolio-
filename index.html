@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pawan kumar | The BCA Trader</title>
+    <link rel="icon" href="./assets/symbol.webp" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-body: #0b0e14;
+        --bg-card: #151921;
+        --primary: #00d1ff;
+        --text-muted: #94a3b8;
+      }
+
+      body {
+        background-color: var(--bg-body);
+        color: white;
+        font-family: "Inter", sans-serif;
+      }
+
+      nav {
+        display: flex;
+        align-items: baseline;
+      }
+
+      nav img {
+        width: 36px;
+        height: 36px;
+        background-color: #fff;
+        position: absolute;
+        left: 10px;
+        cursor: pointer;
+      }
+      .navbar {
+        background-color: rgba(26, 25, 25, 0.9) !important;
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        height: 80px;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .hero-section {
+        padding: 150px 0 100px;
+        text-align: left;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, var(--primary), #7000ff);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .profile-img {
+        width: 300px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .card {
+        background-color: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        transition: 0.4s;
+        color: white;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 30px rgba(0, 209, 255, 0.1);
+      }
+
+      .btn-custom {
+        background-color: var(--primary);
+        color: black;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 12px 30px;
+        border: none;
+      }
+      .container button:hover {
+        box-shadow:
+          2px 2px 6px,
+          -2px -2px 6px var(--primary);
+      }
+
+      #navbarNav ul a {
+        font-weight: 600;
+      }
+
+      #navbarNav ul a:hover {
+        color: #151921;
+        transition-duration: 0.5s;
+      }
+
+      .search-btn {
+        background: linear-gradient(to right, var(--primary), #7000ff);
+      }
+
+      .navbar-nav .nav-link {
+        transition: all 0.4s ease;
+        border-radius: 12px;
+        padding: 8px 20px !important;
+        border: 1px solid transparent;
+      }
+
+      .navbar-nav .nav-link:hover {
+        transform: translateY(-5px);
+        color: var(--primary) !important;
+        background-color: var(--bg-card);
+        border-color: var(--primary);
+        box-shadow: 0 5px 15px rgba(0, 209, 255, 0.3);
+      }
+
+      .small {
+        font-size: 1.5rem;
+        font-size: 600;
+      }
+
+      .search-input {
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        transition: all 0.3s ease;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .search-input:focus {
+        border-color: #00d1ff !important;
+        outline: none;
+        box-shadow: 0 0 15px rgba(0, 209, 255, 0.5) !important;
+      }
+
+      .live-box {
+        background: linear-gradient(
+          145deg,
+          rgba(0, 209, 255, 0.08),
+          rgba(112, 0, 255, 0.08)
+        );
+        border: 1px solid rgba(0, 209, 255, 0.3);
+        border-radius: 18px;
+        box-shadow: 0 0 30px rgba(0, 209, 255, 0.2);
+        transition: 0.4s;
+      }
+
+      .live-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 50px rgba(0, 209, 255, 0.4);
+      }
+
+      .terminal-box {
+        background-color: #0b0e14;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        max-width: 700px;
+        margin: auto;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        font-family: monospace;
+      }
+
+      .terminal-header {
+        padding: 10px;
+        background-color: #151921;
+        border-radius: 16px 16px 0 0;
+      }
+
+      .dot {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f;
+      }
+
+      .terminal-body {
+        padding: 20px;
+        color: #00ff9c;
+      }
+
+      .cmd {
+        color: #00d1ff;
+      }
+
+      .output {
+        margin-left: 20px;
+        color: #e5e7eb;
+      }
+
+      .blink {
+        animation: blink 1.2s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        50.1%,
+        100% {
+          opacity: 0.4;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <img src="./assets/symbol.webp" alt="" />
+        <a class="navbar-brand" href="#"
+          >The BCA (Trader + Coder)<span style="color: var(--primary)"
+            >.</span
+          ></a
+        >
+
+        <div class="container mt-3">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control search-input"
+                  placeholder="Search projects..."
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-primary search-btn"
+                  type="button"
+                  id="button-addon2"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-info ms-lg-3" href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-info ms-lg-3" href="#about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-info ms-lg-3" href="#skills"
+                >Skills</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-info ms-lg-3"
+                href="#"
+                style="text-wrap: nowrap"
+                >Let's Talk</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h6 class="text-info mb-3">✋ Hello there!</h6>
+            <h1 class="hero-title mb-4">
+              I'm <br /><span class="text-gradient">Web Developer</span>
+            </h1>
+            <p class="lead mb-5">
+              I'm a BCA Student & Trader passionate about building clean,
+              efficient, and reliable web applications.
+            </p>
+            <button class="btn btn-custom">Hire Me →</button>
+          </div>
+          <div class="col-lg-5 text-center mt-5 mt-lg-0">
+            <img
+              src="./assets/pawan.jpeg"
+              alt="Deepak"
+              class="profile-img shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-5">
+      <div class="container">
+        <h2 class="mb-5 fw-bold">
+          Skills & <span class="text-info">Expertise</span>
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card p-4">
+              <h5 class="text-info">Frontend</h5>
+              <p class="small">HTML, CSS, JavaScript, React.JS, Tailwind CSS</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-4">
+              <h5 class="text-info">Backend</h5>
+              <p class="small">MongoDB, Node.JS, Express.JS, SQL</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-4">
+              <h5 class="text-info">Trading</h5>
+              <p class="small">Technical Analysis, Gold (XAUUSD)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-5">
+      <div class="container">
+        <h2 class="mb-5 fw-bold">My <span class="text-info">Projects</span></h2>
+
+        <div class="row g-4">
+          <!-- Project 1 -->
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <h5 class="text-info">Spotify Clone</h5>
+              <p class="text small">
+                A Spotify clone built using HTML, CSS and Bootstrap with dark
+                UI.
+              </p>
+              <p class="small"><strong>Tech:</strong> HTML, CSS, Bootstrap</p>
+              <button class="btn btn-custom btn-sm mt-auto">
+                View Project
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <h5 class="text-info">Trading Dashboard</h5>
+              <p class="small">
+                A conceptual trading dashboard to analyze Gold (XAUUSD) market
+                data.
+              </p>
+              <p class="small"><strong>Tech:</strong> JavaScript, Charts</p>
+              <button class="btn btn-outline-info btn-sm mt-auto">
+                Coming Soon
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <h5 class="text-info">Portfolio v1</h5>
+              <p class="small">
+                My personal portfolio showcasing my journey as a Trader +
+                Developer.
+              </p>
+              <p class="small"><strong>Tech:</strong> HTML, CSS, Bootstrap</p>
+              <button class="btn btn-outline-info btn-sm mt-auto">
+                Live Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2 class="fw-bold mb-3">
+              Trader Mode <span class="text-info">ON</span>
+            </h2>
+
+            <p class="lead">
+              I combine market psychology with technical execution — trading
+              Gold (XAUUSD) with discipline, patience and precision.
+            </p>
+
+            <p class="small">“I don’t predict markets. I react to them.”</p>
+          </div>
+
+          <div class="col-md-6">
+            <div class="live-box p-4">
+              <div class="d-flex align-items-center mb-2">
+                <span class="status-dot"></span>
+                <strong class="ms-2">Live Market Focus</strong>
+              </div>
+
+              <p class="mb-1 small">
+                Instrument: <span class="text-info">Gold (XAUUSD)</span>
+              </p>
+              <p class="mb-1 small">Session: London → New York</p>
+              <p class="mb-0 small">Strategy: Price Action + Psychology</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-5">
+      <div class="container">
+        <h2 class="mb-5 fw-bold"><span class="text-info">About</span></h2>
+        <div class="terminal-box" style="height: 450px">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+
+          <div class="terminal-body">
+            <p><span class="cmd">></span>Who I AM?</p>
+            <p class="output">PAWAN KUMAR</p>
+
+            <p><span class="cmd">></span>Role</p>
+            <p class="output">Trader + Web Developer</p>
+
+            <p><span class="cmd">></span>Focus</p>
+            <p class="output">Gold (XAUUSD)</p>
+
+            <p><span class="cmd">></span>Status</p>
+            <p class="output blink">Building. Learning. Executing.</p>
+          </div>
+          <img
+            src="./assets/Portfolio.jpeg"
+            alt=""
+            style="
+              width: 300;
+              height: 350px;
+              position: relative;
+              left: 450px;
+              bottom: 340px;
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
