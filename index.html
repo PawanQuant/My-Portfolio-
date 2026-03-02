@@ -66,11 +66,13 @@
       }
 
       .profile-img {
+        box-shadow: 10px 10px 30px yellow;
         width: 300px;
         height: 350px;
         object-fit: cover;
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: floatAndPulse 4s ease-in-out infinite;
+        transition: all 0.4s ease;
       }
 
       .card {
@@ -225,7 +227,22 @@
         100% {
           opacity: 0.4;
         }
-      }
+      } 
+
+@keyframes floatAndPulse {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 0 20px rgba(237, 255, 45, 0.2);
+    }
+    50% {
+        transform: translateY(-20px) ; 
+        box-shadow: 0 0 50px rgba(237, 255, 45,0.6); 
+    }
+    100% {
+        transform: translateY(0px) ;
+        box-shadow: 0 0 20px rgba(237, 255, 45, 0.2);
+    }
+}
     </style>
   </head>
   <body>
