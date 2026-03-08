@@ -7,7 +7,7 @@
 
 
       body {
-        background-color: black;
+        background-color: black !important;
         color: white;
         font-family: "Inter", sans-serif;
       }
@@ -55,7 +55,7 @@
       }
 
       .profile-img {
-        box-shadow: 10px 10px 30px yellow;
+        box-shadow: 10px 10px 30px rgb(1, 60, 160);
         width: 300px;
         height: 350px;
         object-fit: cover;
@@ -221,14 +221,14 @@
 @keyframes floatAndPulse {
     0% {
         transform: translateY(0px);
-        box-shadow: 0 0 20px rgba(237, 255, 45, 0.2);
+        box-shadow: 0 0 20px rgba(45, 115, 225, 0.2);
     }
     50% {
-        transform: translateY(-20px) ; 
-        box-shadow: 0 0 50px rgba(237, 255, 45,0.6); 
+        transform: translateY(-20px); 
+        box-shadow: 0 0 50px rgba(45, 115, 225,0.6); 
     }
     100% {
-        transform: translateY(0px) ;
-        box-shadow: 0 0 20px rgba(237, 255, 45, 0.2);
+        transform: translateY(0px);
+        box-shadow: 0 0 20px rgba(45, 115, 225, 0.2);
     }
 }
