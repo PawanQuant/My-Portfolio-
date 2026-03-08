@@ -5,8 +5,9 @@
         --text-muted: #94a3b8;
       }
 
+
       body {
-        background-color: var(--bg-body);
+        background-color: black;
         color: white;
         font-family: "Inter", sans-serif;
       }
